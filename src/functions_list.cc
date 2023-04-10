@@ -57,19 +57,28 @@ void LessonTimeList::insert_person(LessonTime people, int index)
 }
 int Class::search_max_salary(const LessonTimeList& _Worker)
 {
+	int a[10] = { 0 };
+	int max = 0;
 	int max_index = -1;
-	float max_sallary = 0;
-
-	auto n = _Worker.size();
-
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < _Worker.size(); i++)
 	{
-		auto value = _Worker[i].Res();
-		if (value > max_sallary || max_index == -1)
-		{
-			max_index = i;
-			max_sallary = value;
+		a[_Worker[i].get_name()] += _Worker[i].Res();
+		if (a[_Worker[i].get_name()] > max) {
+			max = a[_Worker[i].get_name()];
+			max_index = _Worker[i].get_name();
 		}
 	}
 	return max_index;
+}
+int Class::search(const LessonTimeList& _Worker, Name name)
+{
+	int value = 0;
+	for (int i = 0; i < _Worker.size(); i++)
+	{
+		if (_Worker[i].get_name() == name)
+		{
+			value += _Worker[i].Res();
+		}
+	}
+	return value;
 }

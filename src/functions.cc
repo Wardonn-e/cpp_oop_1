@@ -39,3 +39,6 @@ int LessonTime::Res() {
 		return _hours * _count;
 	}
 }
+Name LessonTime::get_name() {
+	return _name;
+}

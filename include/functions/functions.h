@@ -29,6 +29,7 @@ namespace Class {
 		LessonTime(Type type, int count, int hours);
 		LessonTime();
 		int Res();
+		Name get_name();
 	};
 	class LessonTimeList {
 	public:
@@ -45,6 +46,6 @@ namespace Class {
 		int _size;
 	};
 	int search_max_salary(const LessonTimeList& _Worker);
-	int search(const LessonTimeList& _Worker);
+	int search(const LessonTimeList& _Worker, Name name);
 }
 
